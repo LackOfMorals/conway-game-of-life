@@ -14,7 +14,7 @@
 Clone repo
 
 ```Text
-git clone https://github.com/LackOfMorals/conway-spike.git
+git clone https://github.com/LackOfMorals/conway-game-of-life.git
 ```
 
 Install
