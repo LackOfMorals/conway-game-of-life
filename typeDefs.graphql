@@ -1,0 +1,23 @@
+type Cell @node {
+ cellsConnected: [Cell!]! @relationship(type: "NEIGHBOUR_OF", direction: IN)
+ connectedCells: [Cell!]! @relationship(type: "NEIGHBOUR_OF", direction: OUT)
+ alive: Boolean!
+ id: String!
+ x: BigInt!
+ y: BigInt!
+}
+
+type Mutation {
+    joinCellsTogetherIntoGrid: String @cypher(statement: """
+        MATCH(ac:Cell)
+        UNWIND ac AS c
+        CALL (c) { 
+            MATCH (c2:Cell)
+            WHERE c2.x-1<=c.x<=c2.x+1
+            AND c2.y-1<=c.y<=c2.y+1
+            AND c.id <> c2.id
+            MERGE (c)-[:NEIGHBOUR_OF]->(c2)
+        }
+        RETURN "Done" AS status
+    """, columnName: "status")
+}
