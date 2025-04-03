@@ -9,6 +9,9 @@
 - node.js
 - git
 
+## GraphQL for AuraDB
+Follow the instructions for [GraphQL for Aura](https://neo4j.com/docs/graphql/current/aura-graphql/) and use the contents from [typeDefs.graphql](https://github.com/LackOfMorals/conway-game-of-life/blob/main/typeDefs.graphql) for the Type Definitions. 
+
 ## Installation
 
 Clone repo
